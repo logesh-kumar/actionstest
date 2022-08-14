@@ -5,8 +5,8 @@ on:
     types: [build]
   # schedule:
   #   - cron: "* * * * *"
-  push:
-    branches: ["main"]
+  pull_request:
+    types: [opened, reopened]
 jobs:
   run-shell-command:
     runs-on: ubuntu-latest
