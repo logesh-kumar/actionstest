@@ -3,7 +3,7 @@ on: [push]
 jobs:
   run-github-actions:
     runs-on: ubuntu-latest
-    steps:
+    steps:      
       - name: Simple javascript Actions
         id: greet
         uses: actions/hello-world-javascript-action@v1
