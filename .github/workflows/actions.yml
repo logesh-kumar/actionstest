@@ -1,14 +1,10 @@
 name: Actions Workflow
-<<<<<<< Updated upstream
-on: [push]
-=======
 on: 
   push:
     branches:
       - "main"
   pull_request:
-    types: [opened, reopened]      
->>>>>>> Stashed changes
+    types: [opened, reopened]
 jobs:
   run-github-actions:
     runs-on: ubuntu-latest
