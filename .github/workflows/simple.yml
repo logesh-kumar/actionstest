@@ -1,6 +1,6 @@
 name: Shell Commands
 
-on: [push, pull_request]
+on: [push]
 
 jobs:
   run-shell-command:
@@ -16,7 +16,7 @@ jobs:
           echo "${{ github.token }}"
           
 
-      - name: Checkout
+      - name: Checkout # This will clone the repo and checkout to the latest commit
         uses: actions/checkout@v1
       - name: List files after checkout
         run: |
