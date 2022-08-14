@@ -1,0 +1,11 @@
+{
+  "name": "githubactions",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:logesh-kumar/actionstest.git",
+  "author": "Logesh kumar <phoenix.logu@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.27.2"
+  }
+}
