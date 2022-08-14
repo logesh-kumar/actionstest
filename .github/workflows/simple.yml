@@ -1,6 +1,10 @@
 name: Shell Commands
 
 on: 
+  repository_dispatch:
+    types: [build]
+  # schedule:
+  #   - cron: "* * * * *"
   push:
     branches: ["main"]
 jobs:
@@ -17,7 +21,7 @@ jobs:
           echo "${{ github.token }}"
           
 
-      - name: Checkout
+      - name: Checkout # This will clone the repo and checkout to the latest commit
         uses: actions/checkout@v1
       - name: List files after checkout
         run: |
@@ -34,9 +38,9 @@ jobs:
           import platform
           print(platform.processor())
         shell: python
-  run-windows-command:
-    runs-on: windows-latest
-    needs: ["run-shell-command"]
-    steps:
-      - name: Directory location
-        run: pwd
+  # run-windows-command:
+  #   runs-on: windows-latest
+  #   needs: ["run-shell-command"]
+  #   steps:
+  #     - name: Directory location
+  #       run: pwd
