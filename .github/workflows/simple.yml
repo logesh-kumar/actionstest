@@ -7,6 +7,13 @@ on:
   #   - cron: "* * * * *"
   pull_request:
     types: [opened, reopened]
+    branches: 
+      - main
+      - 'feature/*'
+    tags:
+      - v1.*
+    # paths:
+    #   - '**.js'
 jobs:
   run-shell-command:
     runs-on: ubuntu-latest
@@ -20,9 +27,7 @@ jobs:
           echo $GITHUB_SHA
           echo $GITHUB_REPOSITORY
           echo $GITHUB_WORKSPACE
-          echo "${{ github.token }}"
-          
-
+          echo "${{ github.token }}"         
       - name: Checkout # This will clone the repo and checkout to the latest commit
         uses: actions/checkout@v1
       - name: List files after checkout
