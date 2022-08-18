@@ -5,13 +5,16 @@ on:
       - "v*"
 
 jobs:
-  build-artifacts:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: build
         run: echo "generated artifacts"
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
       - name: deploy
-        run: echo "deployed to production"
-        
-
-
+        uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: false
