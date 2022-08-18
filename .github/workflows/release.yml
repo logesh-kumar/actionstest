@@ -11,12 +11,21 @@ jobs:
     steps:
       - name: build
         run: echo "generated artifacts"
+  deploy:
+    name: Deploy
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: deploy
+        run: echo "Deployed to server"
   release:
     name: "Release"
     needs: [deploy]
     if: github.ref == 'refs/heads/master'
     runs-on: "ubuntu-latest"
     steps:
+      - name: release
+        run: echo "Release created"
       - uses: "marvinpinto/action-automatic-releases@latest" # will create a release automatically when a tag is pushed
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
