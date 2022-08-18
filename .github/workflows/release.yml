@@ -1,0 +1,17 @@
+name: Release to production
+on:
+  push:    
+    tags:
+      - "v*"
+
+jobs:
+  build-artifacts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: build
+        run: echo "generated artifacts"
+      - name: deploy
+        run: echo "deployed to production"
+        
+
+
